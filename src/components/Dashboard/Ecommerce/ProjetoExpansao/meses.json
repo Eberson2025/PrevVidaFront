@@ -1,0 +1,170 @@
+[
+  {
+    "mes": "01",
+    "custo": "75000",
+    "qtdeVendas": "10",
+    "vlrLucroMes": "82.50 ",
+    "": ""
+  },
+  {
+    "mes": "02",
+    "custo": "0",
+    "qtdeVendas": "30",
+    "vlrLucroMes": "330.00 ",
+    "": ""
+  },
+  {
+    "mes": "03",
+    "custo": "0",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "825.00 ",
+    "": ""
+  },
+  {
+    "mes": "04",
+    "custo": "0",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "1320.00 ",
+    "": ""
+  },
+  {
+    "mes": "05",
+    "custo": "0",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "1815.00 ",
+    "": ""
+  },
+  {
+    "mes": "06",
+    "custo": "0",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "2310.00 ",
+    "": ""
+  },
+  {
+    "mes": "07",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "2805.00 ",
+    "": ""
+  },
+  {
+    "mes": "08",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "3300.00 ",
+    "": ""
+  },
+  {
+    "mes": "09",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "3795.00 ",
+    "": null
+  },
+  {
+    "mes": "10",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "4290.00 ",
+    "": null
+  },
+  {
+    "mes": "11",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "4785.00 ",
+    "": null
+  },
+  {
+    "mes": "12",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "5280.00 ",
+    "": null
+  },
+  {
+    "mes": "13",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "5775.00 ",
+    "": null
+  },
+  {
+    "mes": "14",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "6270.00 ",
+    "": null
+  },
+  {
+    "mes": "15",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "6765.00 ",
+    "": null
+  },
+  {
+    "mes": "16",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "7260.00 ",
+    "": null
+  },
+  {
+    "mes": "17",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "7755.00 ",
+    "": null
+  },
+  {
+    "mes": "18",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "8250.00 ",
+    "": null
+  },
+  {
+    "mes": "19",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "8745.00 ",
+    "": null
+  },
+  {
+    "mes": "20",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "9240.00 ",
+    "": null
+  },
+  {
+    "mes": "21",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "9735.00 ",
+    "": null
+  },
+  {
+    "mes": "22",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "10230.00 ",
+    "": null
+  },
+  {
+    "mes": "23",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "10725.00 ",
+    "": null
+  },
+  {
+    "mes": "24",
+    "custo": "500",
+    "qtdeVendas": "60",
+    "vlrLucroMes": "11220.00 ",
+    "": null
+  }
+]
