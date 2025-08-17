@@ -1,6 +1,5 @@
 import { reactive } from "vue";
-import * as serviceUsuario from "@/services/usuariosService";
-import { ILoginResultDTO } from "@/services/Interfaces/ILoginResultDTO";
+import { ILoginResultDTO } from "@/services/usuariosService";
 
 
 interface IControleStore {

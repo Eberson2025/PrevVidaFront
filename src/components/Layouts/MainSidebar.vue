@@ -67,18 +67,41 @@
             <div class="accordion-body">
               <ul class="sidebar-sub-menu ps-0 mb-0 list-unstyled">
                 <li class="sidebar-sub-menu-item">
-                  <router-link to="/" class="sidebar-sub-menu-link">
-                    Vendas
+                  <router-link to="/usuarios" class="sidebar-sub-menu-link">
+                    Usuários
                   </router-link>
                 </li>
-                <!-- <li class="sidebar-sub-menu-item">
+                 <li class="sidebar-sub-menu-item">
+                  <router-link to="/planos" class="sidebar-sub-menu-link">
+                    Planos
+                  </router-link>
+                </li>
+                  <li class="sidebar-sub-menu-item">
+                  <router-link
+                    to="/clientes"
+                    class="sidebar-sub-menu-link"
+                  >
+                    Clientes
+                  </router-link>
+                </li>
+
+                <li class="sidebar-sub-menu-item">
                   <router-link
                     to="/project-management"
                     class="sidebar-sub-menu-link"
                   >
-                    Previsão
+                    Contratos
                   </router-link>
-                </li> -->
+                </li>
+              
+                <li class="sidebar-sub-menu-item">
+                  <router-link
+                    to="/project-management"
+                    class="sidebar-sub-menu-link"
+                  >
+                    Contratos
+                  </router-link>
+                </li>
 
               </ul>
             </div>

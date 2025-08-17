@@ -2,7 +2,7 @@
     line-height: 1;
     font-size: 14px;
     border-radius: 5px;
-    padding: 13px 20px;
+    padding: 13px 5px;
     border-color: #dedee4;
 
     &::placeholder {
@@ -16,6 +16,10 @@
             color: transparent;
         }
     }
+}
+.form-control:read-only{
+    background-color: var(--bs-secondary-bg);
+    opacity: 1;
 }
 textarea.form-control {
     padding-top: 20px;
@@ -123,7 +127,7 @@ textarea.form-control {
 .form-select {
     color: var(--splash-black-color);
     border-color: #dedee4;
-    padding: 15px 20px;
+    padding: 15px 5px;
     cursor: pointer;
     font-size: 14px;
     line-height: 1;

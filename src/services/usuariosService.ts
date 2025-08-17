@@ -1,24 +1,33 @@
 import axios from "axios";
-import { ILoginResultDTO } from "./Interfaces/ILoginResultDTO";
-import { IUsuarioDTO } from "./Interfaces/IUsuarioDTO";
-import { IUsuarioObterDTO } from "./Interfaces/IUsuarioObterDTO";
+
 import ApiException from "./ApiException";
 import config from "@/app.config.json";
 import storeControle from "@/utils/storeControle";
+import { ValidacaoResult } from "@/services/Interfaces/IValidacaoResult";
+import { Cidade } from "./cidadesService";
 
-const urlBase = config.urlApi;  //import.meta.env.VITE_URL_API;
+const urlBase = `${config.urlApi}/Usuarios`;  //import.meta.env.VITE_URL_API;
 
+export const urlImagem = `${config.urlApi}/Imagens`; //import.meta.env.VITE_URL_API + "/Imagens";
 const urls = {
-  login: `${urlBase}/Usuarios/Login`,
-  logout: `${urlBase}/Usuarios/Logout`,
-  obter: `${urlBase}/Usuarios`,
-  obterPorId: `${urlBase}/Usuarios`,
+  obter: `${urlBase}`,
+  obterPorId: `${urlBase}`,
+  adicionar: `${urlBase}`,
+  alterar: `${urlBase}`,
+  excluir: `${urlBase}`,
+
+  obterTipos: `${urlBase}/ObterTipos`,
+
+  login: `${urlBase}/Login`,
+  logout: `${urlBase}/Logout`,
+
   alterarPropriaSenha: `${urlBase}/Usuarios/AlterarSenhaPropria`,
   recuperarSenhaSolicitacao: `${urlBase}/Usuarios/recuperarSenhaSolicitacao`,
   recuperarSenhaValidacao: `${urlBase}/Usuarios/recuperarSenhaValidacao`,
   recuperarSenhaConfirmacao: `${urlBase}/Usuarios/recuperarSenhaConfirmacao`,
   obterPermissoes: `${urlBase}/Usuarios/obterPermissoes`,
   obterGrupos: `${urlBase}/Pedido/obterGrupos`,
+
 }
 
 
@@ -81,17 +90,18 @@ function getToken(): string {
     return "";
 }
 
-export const obterPorId = (id: number): Promise<IUsuarioDTO> => {
+export const obterPorId = (id: number): Promise<Usuario> => {
   return new Promise((resolve, reject) => {
 
     const params = {
       id: id
     }
 
+    console.log("obterPorId", id);
     axios.defaults.headers.common.Authorization = getToken();
 
     axios
-      .get(urls.obterPorId, { params })
+      .get(`${urls.obterPorId}/${id}`, { params })
       .then((response) => {
         return resolve(response.data);
       })
@@ -99,8 +109,7 @@ export const obterPorId = (id: number): Promise<IUsuarioDTO> => {
   });
 };
 
-
-export const obter = (params?: IUsuarioObterDTO | null | any): Promise<IUsuarioDTO[]> => {
+export const obter = (params?: UsuarioFiltros | null | any): Promise<Usuario[]> => {
   return new Promise((resolve, reject) => {
 
     axios.defaults.headers.common.Authorization = getToken();
@@ -111,6 +120,20 @@ export const obter = (params?: IUsuarioObterDTO | null | any): Promise<IUsuarioD
         return resolve(r.data);
       })
       .catch(error => reject(new ApiException(error || "Falha ao obter usuario")));
+  });
+};
+
+export const obterTipos = (): Promise<UsuarioTipo[]> => {
+  return new Promise((resolve, reject) => {
+
+    axios.defaults.headers.common.Authorization = getToken();
+
+    axios
+      .get(urls.obterTipos)
+      .then((r) => {
+        return resolve(r.data);
+      })
+      .catch(error => reject(new ApiException(error || "Falha ao obter tipos de usuario")));
   });
 };
 
@@ -132,6 +155,44 @@ export const obterGrupos = (id: number): Promise<IUsuarioGrupoDTO[]> => {
   });
 };
 
+export interface Usuario {
+  usuarioId?: number
+  cidadeId?: number
+  cpfCnpj: string
+  nomeCompleto: string
+  senha?: string
+  email?: string
+  telefone?: string
+  observacoes?: string
+  tipoId?: number
+  ativo: boolean
+  referenciaId?: number
+  modelState?: ValidacaoResult
+}
+
+export interface UsuarioTipo {
+  tipoId: number
+  descricao: string
+}
+
+export async function salvar(usuario: Usuario): Promise<Usuario> {
+  try {
+    // Configurar token de autorização
+    axios.defaults.headers.common.Authorization = getToken();
+
+    if (usuario.usuarioId) {
+      return (await axios.put(`${urls.alterar}/${usuario.usuarioId}`, usuario)).data
+    } else {
+      return (await axios.post(urls.adicionar, usuario)).data
+    }
+  } catch (error: any) {
+    throw new ApiException(error || "Falha ao salvar usuario");
+  }
+}
+
+export async function excluir(id: number): Promise<void> {
+  await axios.delete(`${urls.excluir}/${id}`)
+}
 
 export const obterPermissoes = (usuarioId: number, moduloId: number): Promise<IPermissaoUsuarioDto> => {
   return new Promise((resolve, reject) => {
@@ -226,6 +287,62 @@ export const recuperarSenhaConfirmacao = (email: string, codigoValidacao: string
       .catch(error => reject(new ApiException(error || "Falha na confirmação")));
   });
 };
+
+export const uploadFoto = (usuarioId: number, arquivo: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+
+    const formData = new FormData();
+    formData.append('id', usuarioId.toString());
+    formData.append('arquivo', arquivo);
+
+    axios.defaults.headers.common.Authorization = getToken();
+
+    axios
+      .post(`${urlBase}/UploadFoto?id=${usuarioId}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        return resolve(response.data);
+      })
+      .catch(error => reject(new ApiException(error || "Falha ao fazer upload da foto")));
+  });
+};
+
+export interface UsuarioFiltros {
+  usuarioId?: number | null;
+  nome?: string;
+  tipoId?: string;
+  ativo?: boolean | null;
+  paginaAtual?: number;
+  tamanhoPagina?: number
+}
+
+export interface ILoginResultDTO {
+  userName: string;
+  role: string;
+  accessToken: string;
+  refreshToken: string;
+  usuarioId: number;
+  nomeUsuario: string;
+}
+
+export interface IUsuarioDTO {
+  usuarioId: number;
+  empresaId: number;
+  login: string;
+  nomeCompleto: string;
+  senha: string;
+  email: string;
+  ativo: boolean;
+  telefone: string;
+  tokenRecSenha: string;
+  foto: string;
+  referenciaId: string;
+
+}
+
 
 export interface IUsuarioGrupoDTO {
   grupoId: number;

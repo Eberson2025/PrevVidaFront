@@ -1,5 +1,14 @@
 import { createWebHistory, createRouter, RouteRecordRaw } from "vue-router";
 
+import UsuariosIndex from "@/pages/Usuarios/Index.vue";
+import UsuarioCadastro from "@/pages/Usuarios/UsuarioCadastro.vue";
+
+import PlanosIndex from "@/pages/Planos/Index.vue";
+import PlanosCadastro from "@/pages/Planos/Cadastro.vue";
+
+import ClientesIndex from "@/pages/Clientes/Index.vue";
+import ClientesCadastro from "@/pages/Clientes/Cadastro.vue";
+
 import EcommercePage from "../pages/Dashboard/EcommercePage.vue";
 import ProjectManagementPage from "../pages/Dashboard/ProjectManagementPage.vue";
 import SupportDeskPage from "../pages/Dashboard/SupportDeskPage.vue";
@@ -60,8 +69,7 @@ import RegisterPage from "../pages/Authentication/RegisterPage.vue";
 import ForgotPasswordPage from "../pages/Authentication/ForgotPasswordPage.vue";
 import ResetPasswordPage from "../pages/Authentication/ResetPasswordPage.vue";
 import EmailConfirmationPage from "../pages/Authentication/EmailConfirmationPage.vue";
-import UsersListPage from "../pages/Users/UsersListPage.vue";
-import AddUserPage from "../pages/Users/AddUserPage.vue";
+
 import PricingPage from "../pages/PricingPage.vue";
 import FaqPage from "../pages/FaqPage.vue";
 import SwiperSliderPage from "../pages/Miscellaneous/SwiperSliderPage.vue";
@@ -162,6 +170,54 @@ import BlankPage from "../pages/BlankPage.vue";
 import LogoutPage from "../pages/LogoutPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/usuarios",
+    name: "Usuarios",
+    component: UsuariosIndex,
+  },
+  {
+    path: "/usuarios/cadastro",
+    name: "usuariosCadastro",
+    component: UsuarioCadastro,
+  },
+  {
+    path: "/usuarios/cadastro/:id",
+    name: "usuariosCadastro",
+    component: UsuarioCadastro,
+  },
+
+  {
+    path: "/planos",
+    name: "Planos",
+    component: PlanosIndex,
+  },
+  {
+    path: "/planos/cadastro",
+    name: "planosCadastro",
+    component: PlanosCadastro,
+  },
+  {
+    path: "/planos/cadastro/:id",
+    name: "planosCadastro",
+    component: PlanosCadastro,
+  },
+
+  {
+    path: "/clientes",
+    name: "Clientes",
+    component: ClientesIndex,
+  },
+  {
+    path: "/clientes/cadastro",
+    name: "clientesCadastro",
+    component: ClientesCadastro,
+  },
+  {
+    path: "/clientes/cadastro/:id",
+    name: "clientesCadastro",
+    component: ClientesCadastro,
+  },
+
   {
     path: "/",
     name: "EcommercePage",
@@ -462,16 +518,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "EmailConfirmationPage",
     component: EmailConfirmationPage,
   },
-  {
-    path: "/users-list",
-    name: "UsersListPage",
-    component: UsersListPage,
-  },
-  {
-    path: "/add-user",
-    name: "AddUserPage",
-    component: AddUserPage,
-  },
+
   {
     path: "/pricing",
     name: "PricingPage",

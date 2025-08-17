@@ -5,4 +5,9 @@
 @import './fonts/light/style.css';
 @import './fonts/regular/style.css';
 @import './fonts/thin/style.css';
-@import './css/style.css';/*# sourceMappingURL=custom.css.map */
+@import './css/style.css';
+
+.obrigatorio {
+    font-weight: 800;
+    color: rgb(7, 7, 141);
+}

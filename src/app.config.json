@@ -3,6 +3,6 @@
   "titulo": "Comercial",
   "description": "PrevVidaBrasil",
   "_urlApi": "https://api.prevvidabrasil.com.br",
-  "urlApi": "https://localhost:7121"
+  "urlApi": "https://localhost:44367"
 }
 
