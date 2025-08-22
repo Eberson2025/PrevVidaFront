@@ -189,6 +189,14 @@ function adicionar(){
                       <button class="btn btn-sm btn-danger" title="Excluir registro" @click="excluir(item)">
                         <i class="flaticon-delete"></i>
                       </button>
+
+                      <RouterLink class="btn btn-sm btn-primary" title="Ver o contrato" target="_blank" :to="{ name: 'contratosVer', params: { id: item.contratoId } }">
+                        <i class="flaticon-search"></i>
+                      </RouterLink>
+
+                       <RouterLink class="btn btn-sm btn-primary" title="Assinar o contrato" target="_blank" :to="{ name: 'contratosAssinar', params: { id: item.contratoId } }">
+                        <i class="flaticon-pen"></i>
+                      </RouterLink>
                     </td>
                   </tr>
                 </tbody>
@@ -235,11 +243,22 @@ function adicionar(){
           <div class="col-md-3">
             Plano
           </div>
-          <div class="col-md-7">
+          <div class="col-md-9">
             <DropdownPlanos v-model="controle.model.planoId" class="form-select form-select-sm" />
           </div>
-           <div class="col-md-2">
-              <a class="btn btn-sm btn-primary" @click="buscarStatus()"><i class="flaticon-eye"></i> Ler</a>
+        </div>
+
+        <div class="row mb-2" v-if="controle.model.planoId > 0">
+          <div class="col-md-3">
+            
+          </div>
+          <div class="col-md-9">
+              <RouterLink class="btn btn-sm btn-primary" 
+              title="Ler o contrato" 
+              target="_blank" 
+              :to="{ name: 'planosLer', params: { id: controle.model.planoId } }">
+                <i class="flaticon-search"></i> Ler o contrato
+              </RouterLink>
           </div>
         </div>
 

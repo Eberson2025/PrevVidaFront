@@ -1,0 +1,308 @@
+@page {
+  margin: 0.5cm;
+  margin-top: 0.5cm;
+  margin-bottom: 0.5cm;
+  margin-left: 0.5cm;
+}
+
+@media screen {
+  .resultado {
+      background-color: #525659;
+      height: calc(100vh - 170px);
+      overflow: auto;
+      padding: 20px;
+  }
+
+  .pagina {
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.12) 3px 4px 3px 3px, rgba(0, 0, 0, 0.24) -2px 4px 2px 2px;
+      width: 100%;
+      padding: 10px;
+      margin: auto;
+  }
+
+  .retrato {
+    min-width: 780px;
+    min-height: 990px;
+  }
+
+  .paisagem {
+    min-width: 1222px; 
+    min-height: 793px;
+  }
+}
+
+@media print {
+
+   /* Reseta valores */
+  .page-content,  .resultado,  .container-fluid {
+    width: 100% !important;
+    margin: 0;
+    padding: 0 !important;
+    background-color: white !important;
+    
+  }
+
+  .row  {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .relatorio {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    border: none !important;
+    padding: 0px !important;
+    background-color: white !important;
+  }
+
+  .retrato {
+    min-width: 21cm;
+    border: none !important;
+    background-color: white;
+    padding: 0cm;
+    padding-left: 0px;
+    margin: auto;
+  }
+
+  .paisagem {
+    min-width: 29cm;
+    padding: 0cm;
+    border: none !important;
+    background-color: white;
+    margin: auto;
+  }
+
+  body {
+    margin-top: 50mm;
+    margin-bottom: 50mm;
+    margin-left: 0mm;
+    margin-right: 0mm;
+  }
+
+  @media print {
+    .pagebreak {
+      page-break-before: always;
+    } /* page-break-after works, as well */
+  }
+
+
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12 {
+    padding: 0;
+  }
+  .col-sm-1,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100% !important;
+  }
+  .col-sm-11 {
+    width: 91.66666667% !important;
+  }
+  .col-sm-10 {
+    width: 83.33333333% !important;
+  }
+  .col-sm-9 {
+    width: 75% !important;
+  }
+  .col-sm-8 {
+    width: 66.66666667% !important;
+  }
+  .col-sm-7 {
+    width: 58.33333333% !important;
+  }
+  .col-sm-6 {
+    width: 50% !important;
+  }
+  .col-sm-5 {
+    width: 41.66666667% !important;
+  }
+  .col-sm-4 {
+    width: 33.33333333% !important;
+  }
+  .col-sm-3 {
+    width: 25% !important;
+  }
+  .col-sm-2 {
+    width: 16.66666667% !important;
+  }
+  .col-sm-1 {
+    width: 8.33333333% !important;
+  }
+}
+
+body {
+  margin: 0;
+  color: #000;
+  background-color: #fff;
+}
+
+.relatorio {
+  width: 100% !important;
+  height: 72vh;
+  overflow: auto;
+}
+
+.table-print {
+  font-size: 12px;
+}
+
+.table-relatorio {
+  background-color: #dee2e6 !important;
+  color: rgb(0, 0, 0);
+}
+
+/* 
+.retrato {
+  width: 21cm;
+  min-width: 21cm;
+  max-width: 21cm;
+  padding: 5px;
+  margin: auto;
+  background-color: white;
+}
+
+.paisagem {
+  width: 29cm;
+  min-width: 29cm;
+  max-width: 29cm;
+  padding: 5px;
+  margin: auto;
+  border: 1px solid #6c757d;
+  background-color: white;
+} */
+
+.col-auto {
+  width: auto;
+}
+
+.col-20 {
+  max-width: 20px;
+  min-width: 20px;
+}
+
+.col-30 {
+  max-width: 30px;
+  min-width: 30px;
+}
+
+.col-40 {
+  max-width: 40px;
+  min-width: 40px;
+}
+
+.col-50 {
+  max-width: 50px;
+  min-width: 50px;
+}
+
+.col-60 {
+  max-width: 60px;
+  min-width: 60px;
+}
+
+.col-70 {
+  max-width: 70px;
+  min-width: 70px;
+}
+
+.col-80 {
+  max-width: 80px;
+  min-width: 80px;
+}
+
+.col-90 {
+  max-width: 90px;
+  min-width: 90px;
+}
+
+.col-100 {
+  max-width: 100px;
+  min-width: 100px;
+}
+
+.col-110 {
+  max-width: 110px;
+  min-width: 110px;
+}
+
+.col-120 {
+  max-width: 120px;
+  min-width: 120px;
+}
+
+.col-130 {
+  max-width: 130px;
+  min-width: 130px;
+}
+
+.col-140 {
+  max-width: 140px;
+  min-width: 140px;
+}
+.col-150 {
+  max-width: 150px;
+  min-width: 150px;
+}
+.col-160 {
+  max-width: 160px;
+  min-width: 160px;
+}
+
+.col-170 {
+  max-width: 170px;
+  min-width: 170px;
+}
+
+.col-180 {
+  max-width: 180px;
+  min-width: 180px;
+}
+
+.col-190 {
+  max-width: 190px;
+  min-width: 190px;
+}
+
+.col-200 {
+  max-width: 200px;
+  min-width: 200px;
+}
+
+.col-210 {
+  max-width: 210px;
+  min-width: 210px;
+}
+
+.col-220 {
+  max-width: 220px;
+  min-width: 220px;
+}
+
+.col-230 {
+  max-width: 230px;
+  min-width: 230px;
+}

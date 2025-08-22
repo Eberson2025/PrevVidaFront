@@ -5,9 +5,16 @@ import UsuarioCadastro from "@/pages/Usuarios/UsuarioCadastro.vue";
 
 import PlanosIndex from "@/pages/Planos/Index.vue";
 import PlanosCadastro from "@/pages/Planos/Cadastro.vue";
+import PlanosLer from "@/pages/Planos/Ler.vue";
 
 import ClientesIndex from "@/pages/Clientes/Index.vue";
 import ClientesCadastro from "@/pages/Clientes/Cadastro.vue";
+
+import ContratosVer from "@/pages/Contratos/Ver.vue";
+import ContratosAssinar from "@/pages/Contratos/Assinar.vue";
+
+
+
 
 import EcommercePage from "../pages/Dashboard/EcommercePage.vue";
 import ProjectManagementPage from "../pages/Dashboard/ProjectManagementPage.vue";
@@ -201,6 +208,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "planosCadastro",
     component: PlanosCadastro,
   },
+  {
+    path: "/planos/ler/:id",
+    name: "planosLer",
+    component: PlanosLer,
+  },
 
   {
     path: "/clientes",
@@ -217,6 +229,22 @@ const routes: Array<RouteRecordRaw> = [
     name: "clientesCadastro",
     component: ClientesCadastro,
   },
+
+  {
+    path: "/contratos/ver/:id",
+    name: "contratosVer",
+    component: ContratosVer,
+  },
+  {
+    path: "/contratos/assinar/:id",
+    name: "contratosAssinar",
+    component: ContratosAssinar,
+  },
+
+
+
+
+
 
   {
     path: "/",

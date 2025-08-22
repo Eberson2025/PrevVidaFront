@@ -102,6 +102,28 @@ export const obterStatus = (): Promise<ContratoStatus[]> => {
 };
 
 
+export const SalvarAssinaturaBase64 = (docto: UploadAssinaturaDto): Promise<string> => {
+  return new Promise((resolve, reject) => {
+
+    const formData = new FormData();
+    formData.append('contratoId', docto.contratoId.toString());
+    formData.append('arquivoBase64', docto.arquivoBase64);
+
+    axios.defaults.headers.common.Authorization = getToken();
+
+    axios
+      .post(`${urlBase}/SalvarAssinaturaBase64?id=${docto.contratoId}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((response) => {
+        return resolve(response.data);
+      })
+      .catch(error => reject(new ApiException(error || "Falha ao fazer upload da assinatura")));
+  });
+};
+
 export interface Filtros {
   clienteId: number | null;
   contratoId: number | null;
@@ -159,4 +181,9 @@ export interface plano {
 export interface Usuario {
   usuarioId: number;
   nomeCompleto: string;
+}
+
+export interface UploadAssinaturaDto {
+  contratoId: number;
+  arquivoBase64: string;
 }

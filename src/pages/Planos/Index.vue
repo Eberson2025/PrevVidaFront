@@ -16,7 +16,7 @@
       tipoId: null,
       paginaAtual: 1,
       tamanhoPagina: 20
-    } as unknown as planoService.PlanosFiltros,
+    } as unknown as planoService.Filtros,
     itens: [] as planoService.Plano[],
 
     tipos: ['- Todos -','Particular','Empresarial'] ,

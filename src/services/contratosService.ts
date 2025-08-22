@@ -6,7 +6,7 @@ import storeControle from "@/utils/storeControle";
 import { ValidacaoResult } from "@/services/Interfaces/IValidacaoResult";
 import { Cidade } from "./cidadesService";
 
-const urlBase = `${config.urlApi}/Planos`;  //import.meta.env.VITE_URL_API;
+const urlBase = `${config.urlApi}/Dependentes`;  //import.meta.env.VITE_URL_API;
 
 const urls = {
   obter: `${urlBase}`,
@@ -34,7 +34,7 @@ function getToken(): string {
     return "";
 }
 
-export const obterPorId = (id: number): Promise<Plano> => {
+export const obterPorId = (id: number): Promise<Dependente> => {
   return new Promise((resolve, reject) => {
 
     const params = {
@@ -53,7 +53,7 @@ export const obterPorId = (id: number): Promise<Plano> => {
   });
 };
 
-export const obter = (params?: Filtros | null | any): Promise<Plano[]> => {
+export const obter = (params?: Filtros | null | any): Promise<Dependente[]> => {
   return new Promise((resolve, reject) => {
 
     axios.defaults.headers.common.Authorization = getToken();
@@ -67,13 +67,13 @@ export const obter = (params?: Filtros | null | any): Promise<Plano[]> => {
   });
 };
 
-export async function salvar(model: Plano): Promise<Plano> {
+export async function salvar(model: Dependente): Promise<Dependente> {
   try {
     // Configurar token de autorização
     axios.defaults.headers.common.Authorization = getToken();
 
-    if (model.planoId) {
-      return (await axios.put(`${urls.alterar}/${model.planoId}`, model)).data
+    if (model.dependenteId && model.dependenteId > 0) {
+      return (await axios.put(`${urls.alterar}/${model.dependenteId}`, model)).data
     } else {
       return (await axios.post(urls.adicionar, model)).data
     }
@@ -88,33 +88,35 @@ export async function excluir(id: number): Promise<void> {
 
 
 export interface Filtros {
-  planoId: number | null;
+  clienteId: number | null;
+  dependenteId: number | null;
   nome: string | null;
-  tipo: string | null;
+  parentesco: string | null;
+  cpf: string | null;
   ativo: boolean | null;
-  paginaAtual: number;
-  tamanhoPagina: number;
+  celular: string | null;
+  usuarioId: number | null;
+  paginaAtual: number | null;
+  tamanhoPagina: number | null;
 }
 
-export interface Plano {
-  planoId: number;
-  ativo: boolean;
-  tipo: string;
+export interface Dependente {
+  dependenteId: number;
+  clienteId: number;
+  usuarioId: number;
+  parentesco: string | null;
   nome: string;
-  texto: string | null;
+  cpf: string | null;
+  dataNascimento: string | null;
+  celular: string | null;
   observacoes: string | null;
-  valor: number;
-  percInvestidor: number;
-  percIndicador: number;
-  percVendedor: number;
-  percSupervisor: number;
-  percMidia: number;
-  percTi: number;
+  ativo: boolean;
+
   dataCadastro: string | null;
   usuCadastroId: number | null;
   dataAlteracao: string | null;
   usuAlteracaoId: number | null;
   dataExclusao: string | null;
   usuExclusaoId: number | null;
-  modelState: ValidacaoResult | null;
+  modelState: ValidacaoResult;
 }
