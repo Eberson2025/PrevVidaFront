@@ -193,7 +193,7 @@
       
       // Redirecionar ou mostrar sucesso
       setTimeout(() => {
-        router.push('/contratos');
+        router.push('/contratos/ver/' + controle.model.contratoId);
       }, 2000);
       
     } catch (error) {

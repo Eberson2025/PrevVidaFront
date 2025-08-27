@@ -96,10 +96,10 @@
               
                 <li class="sidebar-sub-menu-item">
                   <router-link
-                    to="/project-management"
+                    to="/parametros"
                     class="sidebar-sub-menu-link"
                   >
-                    Contratos
+                    Parâmetros
                   </router-link>
                 </li>
 

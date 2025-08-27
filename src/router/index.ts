@@ -13,7 +13,8 @@ import ClientesCadastro from "@/pages/Clientes/Cadastro.vue";
 import ContratosVer from "@/pages/Contratos/Ver.vue";
 import ContratosAssinar from "@/pages/Contratos/Assinar.vue";
 
-
+import ParametrosIndex from "@/pages/Parametros/Index.vue";
+import ParametrosCadastro from "@/pages/Parametros/Cadastro.vue";
 
 
 import EcommercePage from "../pages/Dashboard/EcommercePage.vue";
@@ -241,7 +242,21 @@ const routes: Array<RouteRecordRaw> = [
     component: ContratosAssinar,
   },
 
-
+  {
+    path: "/parametros",
+    name: "parametros",
+    component: ParametrosIndex,
+  },
+  {
+    path: "/parametros/cadastro",
+    name: "parametrosCadastro",
+    component: ParametrosCadastro,
+  },
+  {
+    path: "/parametros/cadastro/:id",
+    name: "parametrosCadastro",
+    component: ParametrosCadastro,
+  },
 
 
 
